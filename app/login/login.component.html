@@ -1,5 +1,5 @@
 <GridLayout class="page page-content" columns="*" rows="auto,auto,auto">
     <Label row="0" class="page-icon fa" text="&#xf015;"></Label>
     <Label row="1" class="page-placeholder" text="<!-- Page content goes here -->"></Label>
-    <Button row="2" text="Lets go!!" [nsRouterLink]="['/menu']"></Button>
+    <Button row="2" text="Lets go!!" [nsRouterLink]="['/menu', { outlets: { mainapp: ['home']}}]"></Button>
 </GridLayout>
