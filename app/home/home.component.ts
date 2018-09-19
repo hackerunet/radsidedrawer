@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import * as app from "application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
@@ -9,6 +9,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 })
 export class HomeComponent implements OnInit {
 
+    @ViewChild("menuDrawer") radSideDrawer: RadSideDrawer;
     constructor() {
         // Use the component constructor to inject providers.
     }
@@ -18,7 +19,6 @@ export class HomeComponent implements OnInit {
     }
 
     onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+        this.radSideDrawer.showDrawer();
     }
 }
