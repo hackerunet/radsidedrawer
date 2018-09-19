@@ -38,11 +38,20 @@ export class MenuComponent implements OnInit {
     }
 
     onNavItemTap(navItemRoute: string): void {
-        this.routerExtensions.navigate([navItemRoute], {
-            transition: {
-                name: "fade"
-            }
-        });
+        if (navItemRoute === "/logout") {
+            this.routerExtensions.navigate(["login"], {
+                clearHistory: true,
+                transition: {
+                    name: "fade"
+                }
+            });
+        } else {
+            this.routerExtensions.navigate(["menu" + navItemRoute], {
+                transition: {
+                    name: "fade"
+                }
+            });
+        }
         this.radSideDrawer.nativeElement.closeDrawer();
     }
 }

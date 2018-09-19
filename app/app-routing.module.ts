@@ -5,10 +5,10 @@ import { LoginComponent } from "./login/login.component";
 import { MenuComponent } from "./menu/menu.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/menu", pathMatch: "full" },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "menu", component: MenuComponent, children: [
-            { path: "", loadChildren: "./home/home.module#HomeModule" },
+            { path: "", redirectTo: "home", pathMatch: "full" },
             { path: "home", loadChildren: "./home/home.module#HomeModule" },
             { path: "browse", loadChildren: "./browse/browse.module#BrowseModule" },
             { path: "search", loadChildren: "./search/search.module#SearchModule" },
