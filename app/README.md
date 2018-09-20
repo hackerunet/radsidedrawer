@@ -1,4 +1,4 @@
-# NativeScript with Angular Drawer Navigation Template
+# This is the Nativescript RadSideDrawer template with two areas, a main page where to place anything you want without the main RadSideDrawer menu, and the area with the menu.
 
 App templates help you jump start your native cross-platform apps with built-in UI elements and best practices. Save time writing boilerplate code over and over again when you create new apps.
 
