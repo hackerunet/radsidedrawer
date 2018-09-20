@@ -8,6 +8,8 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { MenuComponent } from "./menu/menu.component";
 
+import { UtilsService } from "~/shared/services/utils.service";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -22,6 +24,7 @@ import { MenuComponent } from "./menu/menu.component";
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
+    providers: [UtilsService]
 })
 export class AppModule { }

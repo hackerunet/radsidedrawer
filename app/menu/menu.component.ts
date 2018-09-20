@@ -3,7 +3,9 @@ import * as app from "application";
 import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
 import { filter } from "rxjs/operators";
 import { NavigationEnd, Router } from "@angular/router";
+import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
+import { UtilsService } from "../shared/services/utils.service";
 
 @Component({
     selector: "Menu",
@@ -12,11 +14,13 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class MenuComponent implements OnInit {
 
-    @ViewChild("menuDrawer") radSideDrawer: ElementRef;
+    @ViewChild("mainMenu") radSideDrawer: ElementRef;
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
+
+    constructor(private router: Router, private routerExtensions: RouterExtensions, private utilsSrv: UtilsService, private page: Page) {
         // Use the component constructor to inject providers.
+        this.page.actionBarHidden = true;
     }
 
     ngOnInit(): void {
@@ -26,7 +30,7 @@ export class MenuComponent implements OnInit {
         this.router.events
             .pipe(filter((event: any) => event instanceof NavigationEnd))
             .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
-        this.radSideDrawer.nativeElement.showDrawer();
+        this.utilsSrv.setMainMenu(<RadSideDrawer>this.radSideDrawer.nativeElement);
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {
@@ -46,7 +50,7 @@ export class MenuComponent implements OnInit {
                 }
             });
         } else {
-            this.routerExtensions.navigate(["menu" + navItemRoute], {
+            this.routerExtensions.navigate(["app" + navItemRoute], {
                 transition: {
                     name: "fade"
                 }

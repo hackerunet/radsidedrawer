@@ -5,9 +5,9 @@ import { LoginComponent } from "./login/login.component";
 import { MenuComponent } from "./menu/menu.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "/(app:login)", pathMatch: "full" },
-    { path: "login", component: LoginComponent, outlet: "app" },
-    { path: "menu", component: MenuComponent, outlet: "mainapp", children: [
+    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "login", component: LoginComponent },
+    { path: "app", component: MenuComponent, children: [
             { path: "", redirectTo: "home", pathMatch: "full" },
             { path: "home", loadChildren: "./home/home.module#HomeModule" },
             { path: "browse", loadChildren: "./browse/browse.module#BrowseModule" },
