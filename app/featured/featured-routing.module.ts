@@ -5,7 +5,7 @@ import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { FeaturedComponent } from "./featured.component";
 
 const routes: Routes = [
-    { path: "", component: FeaturedComponent }
+    { path: "", component: FeaturedComponent, outlet: "mainapp" }
 ];
 
 @NgModule({

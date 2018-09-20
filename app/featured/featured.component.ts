@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import * as app from "application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { UtilsService } from "../shared/services/utils.service";
 
 @Component({
     selector: "Featured",
@@ -9,7 +10,7 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 })
 export class FeaturedComponent implements OnInit {
 
-    constructor() {
+    constructor(private utilsSrv: UtilsService) {
         // Use the component constructor to inject providers.
     }
 
@@ -18,7 +19,6 @@ export class FeaturedComponent implements OnInit {
     }
 
     onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+        this.utilsSrv.showDrawer();
     }
 }

@@ -5,6 +5,11 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
+import { LoginComponent } from "./login/login.component";
+import { MenuComponent } from "./menu/menu.component";
+
+import { UtilsService } from "~/shared/services/utils.service";
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -15,10 +20,11 @@ import { AppComponent } from "./app.component";
         NativeScriptUISideDrawerModule
     ],
     declarations: [
-        AppComponent
+        AppComponent, LoginComponent, MenuComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
-    ]
+    ],
+    providers: [UtilsService]
 })
 export class AppModule { }
